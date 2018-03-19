@@ -1,5 +1,5 @@
-# requires you to define the library as a global shared library https://jenkins.io/doc/book/pipeline/shared-libraries/#global-shared-libraries
-@Library('pipeline-library-demo') _
+// requires you to define the library as a global shared library https://jenkins.io/doc/book/pipeline/shared-libraries/#global-shared-libraries
+@Library('pipeline-library-demo@master') _
 
 pipeline {
 	agent none
@@ -7,8 +7,8 @@ pipeline {
 		stage('get build cause') {
 			agent any
 			steps {
-				def cause=getBuildCause
-				echo cause.getBuildCause()
+				// getBuildCause() is from pipeline-library-demo
+				echo getBuildCause()
 			}
 		}
 	}
