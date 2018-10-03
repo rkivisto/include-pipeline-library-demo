@@ -1,0 +1,21 @@
+@Library('pipeline-library-demo@master') _
+pipeline{
+    agent none
+    parameters {
+        booleanParam defaultValue: true, description: 'some description', name: 'boolParam'
+    }
+    stages{
+        stage('Build') {
+            agent any
+            steps {
+                buildStage()
+            }
+        }
+        stage('Test') {
+            agent any
+            steps {
+                testStage()
+            }
+        }
+    }
+}
